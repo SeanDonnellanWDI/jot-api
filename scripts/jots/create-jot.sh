@@ -7,9 +7,9 @@ curl "http://localhost:4741/jots" \
   --header "Content-Type: application/json" \
   --data '{
     "jot": {
-      "name": "'"First Jot"'",
-      "content": "'"Hello World, I am a Jot"'",
-      "active": "'"true"'"
+      "name": "'"${NAME}"'",
+      "content": "'"${CONTENT}"'",
+      "active": "'"${BOOL}"'"
     }
   }'
 

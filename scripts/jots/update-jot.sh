@@ -7,9 +7,9 @@ curl "http://localhost:4741/jots/${ID}" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "jot": {
-      "name": "'"First Jot"'",
-      "content": "'"Hello World, I am a Jot. I have been updated via localhost curl scripts"'",
-      "active": "'"true"'"
+      "name": "'"${NAME}"'",
+      "content": "'"${CONTENT}"'",
+      "active": "'"${BOOL}"'"
     }
   }'
 
