@@ -10,7 +10,7 @@ class JotsController < OpenReadController
 
   # GET /jots/1
   def show
-    @jot = Jot.find(param[:id])
+    @jot = Jot.find(params[:id])
 
     render json: @jot
   end
