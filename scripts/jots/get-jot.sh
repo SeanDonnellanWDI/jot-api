@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "http://localhost:4741/jots/${ID}" \
+curl "https://jot-api.herokuapp.com/jots/${ID}" \
   --include \
   --request GET
 

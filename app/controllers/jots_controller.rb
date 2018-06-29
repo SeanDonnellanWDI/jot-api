@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JotsController < OpenReadController
   before_action :set_jot, only: %i[update destroy]
 

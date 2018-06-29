@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "http://localhost:4741/examples" \
+curl "https://jot-api.herokuapp.com/examples" \
   --include \
   --request GET \
   --header "Authorization: Token token=${TOKEN}"
