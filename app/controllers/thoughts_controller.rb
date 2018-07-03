@@ -12,14 +12,14 @@ class ThoughtsController < OpenReadController
 
   # GET /thoughts/1
   def show
-    @jot = Thought.find(params[:id])
+    @thought = Thought.find(params[:id])
 
     render json: @thought
   end
 
   # POST /thoughts
   def create
-    @thought = current_user.jots.build(jot_params)
+    @thought = current_user.thoughts.build(thought_params)
 
     if @thought.save
       render json: @thought, status: :created
@@ -46,7 +46,7 @@ class ThoughtsController < OpenReadController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_thought
-    @thought = current_user.jots.find(params[:id])
+    @thought = current_user.thoughts.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
