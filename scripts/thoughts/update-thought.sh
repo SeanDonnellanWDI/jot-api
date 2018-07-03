@@ -8,7 +8,7 @@ curl "https://jot-api.herokuapp.com/thoughts/${ID}" \
   --data '{
     "thought": {
       "title": "'"${TITLE}"'",
-      "published": "'"${BOOLEAN}"'"
+      "published": "'"${PUB_BOOL}"'"
     }
   }'
 
