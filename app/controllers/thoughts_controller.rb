@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class ThoughtsController < ApplicationController
-  before_action :set_thought, only: %i[show update destroy]
+class ThoughtsController < OpenReadController
+  before_action :set_thought, only: %i[update destroy]
 
   # GET /thoughts
   def index
@@ -12,12 +12,14 @@ class ThoughtsController < ApplicationController
 
   # GET /thoughts/1
   def show
+    @jot = Thought.find(params[:id])
+
     render json: @thought
   end
 
   # POST /thoughts
   def create
-    @thought = Thought.new(thought_params)
+    @thought = current_user.jots.build(jot_params)
 
     if @thought.save
       render json: @thought, status: :created
@@ -44,7 +46,7 @@ class ThoughtsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_thought
-    @thought = Thought.find(params[:id])
+    @thought = current_user.jots.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
