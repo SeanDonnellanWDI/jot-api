@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 
-class JotsController < OpenReadController
-  before_action :set_jot, only: %i[update destroy]
+class JotsController < ProtectedController
+  before_action :set_jot, only: %i[show update destroy]
 
   # GET /jots
   def index
-    @jots = Jot.all
+    @jots = current_user.jots
 
     render json: @jots
   end
 
   # GET /jots/1
   def show
-    @jot = Jot.find(params[:id])
-
     render json: @jot
   end
 

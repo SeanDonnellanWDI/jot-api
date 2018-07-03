@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 
-class ThoughtsController < OpenReadController
-  before_action :set_thought, only: %i[update destroy]
+class ThoughtsController < ProtectedController
+  before_action :set_thought, only: %i[show update destroy]
 
   # GET /thoughts
   def index
-    @thoughts = Thought.all
+    @thoughts = current_user.thoughts
 
     render json: @thoughts
   end
 
   # GET /thoughts/1
   def show
-    @thought = Thought.find(params[:id])
-
     render json: @thought
   end
 
