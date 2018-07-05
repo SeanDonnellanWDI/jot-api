@@ -49,6 +49,6 @@ class JotsController < ProtectedController
 
   # Only allow a trusted parameter "white list" through.
   def jot_params
-    params.require(:jot).permit(:name, :content, :user_id, :active)
+    params.require(:jot).permit(:name, :content, :user_id)
   end
 end
